@@ -34,6 +34,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  
 }
 
 h2 {
@@ -55,22 +56,77 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
+  font-style:italic;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  text-transform: none;
+  letter-spacing: 1px;
   padding-top: 9px;
   font-weight: bold;
+  &:hover{
+    color: grey;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
+.navbar {
+  background-color:teal;
+  
+}
+
+ .header_list{
+  filter: none;
+  color:#fff !important;
+  font-weight:bold;
+  
+  &:hover{
+    color:#777 !important;
+  }
+}
+
+.h_title {
+  font-weight:bold;
+  font-style:italic;
+  
+}
+
+.li_title{
+  background-color: #ddd;
+  text-indent:1em each-line;
+}
+
+.login-btn{
+  margin-top: 10px;
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #fff !important;
+}
+
+/*table*/
+.table>thead>tr>td.active, .table>thead>tr>th.active, .table>thead>tr.active>td, .table>thead>tr.active>th, .table>tbody>tr>td.active, .table>tbody>tr>th.active, .table>tbody>tr.active>td, .table>tbody>tr.active>th, .table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>tfoot>tr.active>td, .table>tfoot>tr.active>th {
+    background-color: #f5f5f5;
+}
+table tr th {
+  border: 1px solid #ddd;
+  text-align: center;
+  background :#f5f5f5 ;
+  text-decoration:none;
+  font-weight:bold;
+}
+td {
+  border: 1px solid #ddd;
+
 }
 
 /* デバッグウインドウ */
 
 .debug_dump {
+  
   clear: both;
   float: left;
   width: 100%;

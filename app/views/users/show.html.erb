@@ -1,23 +1,28 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>プロフィール</h1>
     <table class="table table-hover">
-      <thead>
-        <tr>
-          <th><%= User.human_attribute_name :name %></th>
-          <th><%= User.human_attribute_name :email %></th>
-          <th><%= User.human_attribute_name :created_at %></th>
-        </tr>
-      </thead>
-
       <tbody>
         <tr>
+          <th><%= User.human_attribute_name :ID, class: "active col-md-3" %></th>
+          <td class= "col-md-9" ><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name :名前, class:"active" %></th>
           <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name :メールアドレス, class:"active" %></th>
           <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name :作成日, class:"active" %></th>
           <td><%= @user.created_at %></td>
         </tr>
       </tbody>
+
     </table>
   </div>    
 </div>
