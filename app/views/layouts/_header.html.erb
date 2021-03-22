@@ -1,12 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse" >
   <div class="container ">
     <%= link_to "Task App", root_path, id: "logo" %>
+    
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path, class: "header_list" %></li>
         <% if logged_in? %>
           <li><%= link_to "利用者一覧",users_path, class: "header_list"  %></li>
-           <li><%= link_to "タスク作成",root_path, class: "header_list" %></li>
+           <li><%= link_to "タスク作成",new_user_task_path(current_user), class: "header_list" %></li>
           <li class="dropdown nv">
             <a href="#" class="dropdown-toggle header_list " data-toggle="dropdown">
               管理者 <b class="caret"></b>
@@ -16,7 +17,7 @@
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", '#' %></li>
               <li class="li_title">タスク</li>
-              <li><%= link_to "タスク一覧", user_tasks_path %></li>
+              <li><%= link_to "タスク一覧", user_tasks_path(current_user) %></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>
           </li>
