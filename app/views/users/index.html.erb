@@ -1,0 +1,47 @@
+<h1>利用者一覧</h1>
+
+<div class="main tasks-index">
+  <div class="container col-md-10 col-md-offset-1">
+    <%= will_paginate %>
+       <table  class="table">
+          
+            <thead>
+              
+              <tr>
+                <th><%= User.human_attribute_name :name %></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= link_to "#{user.name}" ,user_path(user), method: :get %>
+                    
+                    <% if current_user.admin? && !current_user?(user) %>
+                      <p class="btn btn-success btn-sm">一般</p>
+                      <td>
+                        <p> 
+                          <%= link_to "削除" ,user_path(:id),method: :delete,
+                              data: {confirm: "「#{user.name}」を削除します。よろしいですか？"},class: "btn btn-sm btn-danger " %>
+                        </p>
+                      </td>
+                    <% else %>
+                    <p class="btn btn-sm btn-primary">管理者</p>
+                    <td></td>
+
+                  <% end %> 
+                  
+                  </td>
+                  
+                </tr>
+    
+              <% end %>
+            
+            </tbody>
+            
+          </table>
+          <%= will_paginate %>
+        
+  </div>
+</div> 

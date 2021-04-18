@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title) %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -10,15 +10,15 @@
           <td class= "col-md-9" ><%= @user.id %></td>
         </tr>
         <tr>
-          <th><%= User.human_attribute_name :名前, class:"active" %></th>
+          <th><%= User.human_attribute_name :name, class:"active" %></th>
           <td><%= @user.name %></td>
         </tr>
         <tr>
-          <th><%= User.human_attribute_name :メールアドレス, class:"active" %></th>
+          <th><%= User.human_attribute_name :email, class:"active" %></th>
           <td><%= @user.email %></td>
         </tr>
         <tr>
-          <th><%= User.human_attribute_name :作成日, class:"active" %></th>
+          <th><%= User.human_attribute_name :created_at, class:"active" %></th>
           <td><%= @user.created_at %></td>
         </tr>
       </tbody>

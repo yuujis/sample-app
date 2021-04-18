@@ -15,7 +15,8 @@
             <ul class="dropdown-menu">
               <li class="li_title">ユーザー</li>
               <li><%= link_to "プロフィール", current_user %></li>
-              <li><%= link_to "設定", '#' %></li>
+              <li><%= link_to "設定", edit_user_path(current_user) %></li>
+              
               <li class="li_title">タスク</li>
               <li><%= link_to "タスク一覧", user_tasks_path(current_user) %></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>

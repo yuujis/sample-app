@@ -6,33 +6,34 @@
     <table class="table table-hover">
       <tbody>
         <tr>
-          <th><%= Task.human_attribute_name :ID, class: "active col-md-3" %></th>
+          <th><%= Task.human_attribute_name :id, class: "active col-md-3" %></th>
           <td class= "col-md-9" ><%= @task.id %></td>
         </tr>
         <tr>
-          <th><%= Task.human_attribute_name :名称, class:"active" %></th>
+          <th><%= Task.human_attribute_name :name, class:"active" %></th>
           <td><%= @task.name %></td>
         </tr>
         <tr>
-          <th><%= Task.human_attribute_name :詳細, class:"active" %></th>
-          <td><%= @task.email %></td>
+          <th><%= Task.human_attribute_name :details, class:"active" %></th>
+          <td><%= text_url_to_link(h(@task.details)).html_safe  %></td>
         </tr>
         <tr>
-          <th><%= Task.human_attribute_name :作成日, class:"active" %></th>
+          <th><%= Task.human_attribute_name :created_at, class:"active" %></th>
           <td><%= @task.created_at %></td>
         </tr>
         <tr>
-          <th><%= Task.human_attribute_name :更新日, class:"active" %></th>
-          <td><%= @task.created_at %></td>
+          <th><%= Task.human_attribute_name :updated_at, class:"active" %></th>
+          <td><%= @task.updated_at %></td>
         </tr>
       </tbody>
 
     </table>
     
     <div class="task-menus">
-      <%= link_to "編集" ,edit_user_task_path(@task),class: "btn btn-lg btn-success btn-form " %>
-      <%= link_to "削除" ,user_task_path(@user,task),method: :delete,
-          data: {confirm: "「#{@task.name}」を削除します。よろしいですか？"},class: "btn btn-lg btn-denger " %>
-  </div>
+      <%= link_to "編集" ,edit_user_task_path(@user,@task),class: "btn btn-lg btn-success btn-form " %>
+      <%= link_to "削除" ,user_task_path(@user,@task),method: :delete,
+          data: {confirm: "「#{@task.task_name}」を削除します。よろしいですか？"},class: "btn btn-lg btn-danger " %>
+    </div>
+    
   </div>
 </div>

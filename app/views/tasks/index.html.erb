@@ -2,37 +2,43 @@
 <h1><%= @user.name %>のタスク一覧</h1>
 
 <div class="main tasks-index">
-  <div class="container">
-    <%= link_to "タスク新規作成", new_user_task_path(current_user), class: "btn btn-lg btn-primary pull-right" %>
-     <table  class="table">
-        <tbody>
-
-        <div>
-          <tr>
-            <th><%= User.human_attribute_name :名称, class:"active" %></th>
-            <th><%= User.human_attribute_name :作成日, class:"active" %></th>
-          </tr>
+  <div class="container col-md-10 col-md-offset-1">
+    <div>
+      <%= link_to "タスク新規作成", new_user_task_path(current_user), class: "btn btn-lg btn-primary pull-right" %>
+    </div>
+       <table  class="table">
           
-          <% @tasks.each do |task| %>
-          <tr>
-            <td>
-              <%= task.name %>,<%= task.created_at %>
+            <thead>
               
+              <tr>
+                <th class="task_th"><%= Task.human_attribute_name(:name) %></th>
+                <th class="task_th"><%= Task.human_attribute_name(:created_at) %></th>
+              </tr>
               
-                <%= link_to "編集" ,edit_user_task_path(@user,task),class: "btn btn-sm btn-success btn-form " %>
-                <%= link_to "削除" ,user_task_path(@user,task),method: :delete,
-                    data: {confirm: "「#{task.name}」を削除します。よろしいですか？"},class: "btn btn-sm btn-denger " %>
-              
-              
-            </td>
+            </thead>
             
-          </tr>
-
-        </div>
-          <% end %>
-        
-          </tbody>
-        </table>
+            <tbody>
+              <% @tasks.each do |task| %>
+              <tr>
+                <td>
+                  <%= link_to "#{task.name}" ,user_task_path(@user,task), method: :get %>
+                </td>
+                <td>
+                  <%= task.created_at %>
+                </td>
+                
+                <td> 
+                    <%= link_to "編集" ,edit_user_task_path(@user,task),class: "btn btn-sm btn-success btn-form " %>
+                    <%= link_to "削除" ,user_task_path(@user,task),method: :delete,
+                        data: {confirm: "「#{task.name}」を削除します。よろしいですか？"},class: "btn btn-sm btn-danger " %>
+                </td>
+                
+              </tr>
+    
+              <% end %>
+            
+            </tbody>
+          </table>
         
   </div>
-</div>
+</div> 
